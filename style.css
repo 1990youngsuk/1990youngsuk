@@ -14,8 +14,12 @@
 .rating-wrap {
   width: 100%;
   margin: ;
-  padding: 1rem 1rem;
+  padding: 1rem;
   background: #fff;
+}
+
+.search_price {
+  margin: 5px;
 }
 
 /* Presentation-only styles above  */
@@ -23,13 +27,13 @@
 .rating-wrap {
   display: flex;
   /* this is because we can't select preceding elements of the hovered element */
-  flex-direction: row-reverse;
+  flex-direction: center;
 }
 
 .rating-wrap .rate-star {
-  display: block;
-  width: 1.5em;
-  font-size: 2.5em;
+  display: inline-block;
+  width: 1.5rem;
+  font-size: 1.5rem;
   text-align: center;
   color: transparent;
   -webkit-text-stroke: 0.6px #bababa;
@@ -183,6 +187,10 @@ header {
   color: rgb(75, 74, 74);
 }
 
+.search_input {
+  margin: 5 0px;
+}
+
 #search_type {
   width: 45%;
   height: 1.5rem;
@@ -225,12 +233,11 @@ table {
 }
 
 .search__button {
-  display: grid;
+  display: flex;
   /* justify-content: end; */
   /* padding: 20px 0; */
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .search__button button {
@@ -393,15 +400,6 @@ table {
     display: none;
   }
 
-  .search__box {
-    padding: 0.75rem;
-    height: 250px;
-    position: relative;
-    top: 0.3rem;
-    left: 64%;
-    width: 30%;
-  }
-
   .search__title {
     display: none;
   }
@@ -497,7 +495,8 @@ table {
   }
 
   .search__box {
-    display: block;
+    display: flex;
+    flex-direction: row;
     padding: 0.5rem;
     height: 230px;
     width: 95vw;
