@@ -12,9 +12,9 @@
   margin: auto;
 }
 .rating-wrap {
-  width: 100%;
-  margin: ;
-  padding: 1rem;
+  width: 70%;
+  margin: none;
+  padding: 0 5px;
   background: #fff;
 }
 
@@ -27,12 +27,11 @@
 .rating-wrap {
   display: flex;
   /* this is because we can't select preceding elements of the hovered element */
-  flex-direction: center;
+  flex-direction: row-reverse;
 }
 
 .rating-wrap .rate-star {
-  display: flex;
-  flex-direction: row;
+  display: inline-block;
   width: 1.5rem;
   font-size: 1.5rem;
   text-align: center;
