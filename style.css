@@ -8,9 +8,66 @@
   transition: 0.15s ease;
 }
 
+.display-wrapper {
+  margin: auto;
+}
+.rating-wrap {
+  width: 100%;
+  margin: ;
+  padding: 1rem 1rem;
+  background: #fff;
+}
+
+/* Presentation-only styles above  */
+
+.rating-wrap {
+  display: flex;
+  /* this is because we can't select preceding elements of the hovered element */
+  flex-direction: row-reverse;
+}
+
+.rating-wrap .rate-star {
+  display: block;
+  width: 1.5em;
+  font-size: 2.5em;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 0.6px #bababa;
+}
+.rating-wrap .rate-star p {
+  font-size: 0.35em;
+  margin-top: 0.5em;
+  -webkit-text-stroke: 0;
+}
+.rating-wrap .rate-star p {
+  color: #bababa;
+}
+.rate-star p.no-show {
+  /*hides text for stars 2-4 */
+  color: transparent;
+}
+.rating-wrap > .rate-star:hover,
+.rating-wrap > .rate-star:hover ~ .rate-star {
+  /*here, we select the element that is hovered, and any sibling element that succeeds the hovered element*/
+  color: #ffb300;
+  -webkit-text-stroke: 1px #ffb300;
+}
+
+.rating-wrap:hover .rate-star p {
+  /*when we hover the wrapper, hide all text, but allow override of hover selector below*/
+  color: transparent;
+}
+.rating-wrap > .rate-star:hover p {
+  /*we need to darken the text for any hovered element*/
+  color: #000;
+}
+
 a {
   text-decoration: none;
   color: var(--text-color);
+}
+i {
+  font-style: normal;
 }
 
 li {
@@ -126,6 +183,21 @@ header {
   color: rgb(75, 74, 74);
 }
 
+#search_type {
+  width: 45%;
+  height: 1.5rem;
+  color: lightgrey;
+}
+
+#search_select {
+  height: 30px;
+  width: 45%;
+}
+
+.search_title {
+  justify-content: ;
+}
+
 table {
   width: 100%;
 }
@@ -134,6 +206,14 @@ table {
   padding: 0.75rem 0;
   font-size: 1rem;
   font-weight: 600;
+}
+
+.search__box input {
+  width: 10%;
+}
+
+#service_range {
+  width: 30px;
 }
 
 .search__input {
