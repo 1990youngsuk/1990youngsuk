@@ -1,2 +1,2 @@
-User-agent: *
-Allow:/
+User-agent: *Allow:/
+Sitemap: https://hilancers.com/sitemap.xml
