@@ -4,6 +4,10 @@
   --accent-color: skyblue;
 }
 
+:hover {
+  transition: 0.3s ease;
+}
+
 a {
   text-decoration: none;
   color: var(--text-color);
