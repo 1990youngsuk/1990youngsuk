@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e24a44e0a5.js" crossorigin="anonymous"></script>
+    <script scr="../main.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <title>Youngsuk's Life</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".toggle").click(function(){
+                $(".nav_menu , .nav_icons").toggle();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#map_button").click(function(){
+                $("#map").toggle();
+            });
+        });       
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
+
+    <script>
+        function alert(){
+            Swal.fire('82-10-3008-4550 \n 1990youngsuk@gmail.com')
+        }
+
+        function emailsend(){
+            Swal.fire('Thank you!')
+        }
+    </script>
+
+    <script>
+        //map options
+        function initMap(){
+            var options = {
+                zoom: 8,
+                center: {lat:37.5665, lng:126.9780}
+            }
+        //new map
+            var map = new google.maps.Map(document. getElementById('map'), options);
+
+            //map marker
+            var marker = new google.maps.marker({
+                position:{lat:37.5510, lng:126.8495},
+                map: map,
+                icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+            })
+            
+        }
+    </script>
+
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFWvAXa_-83NyMjiGlkcPEg-0uq5P2Jf4&callback=initMap&libraries=&v=weekly"
+    defer
+    ></script>
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav_logo">
+            <i class="fas fa-plane"></i>
+            <a href="#" >Youngsuk Kim</a>
+        </div>        
+
+        <ul class="nav_menu" id="nav_menu">
+            <li><a onclick="alert()" href="#">Contact number</a></li>
+            <li><a href="https://www.youtube.com/channel/UCIlG6iYlNwNVqkgYgHdKGVw">YouTube</a></li>
+            <li><a href="https://1drv.ms/u/s!Asadk8ojfwoqiH-LJJJrb6b1U6Uj?e=VnlKXg">Gallery</a></li>
+            <li><a id="map_button" href="#map">Maps</a></li>
+        </ul>
+        
+        <ul class="nav_icons">
+            <li>
+                <a href="https://www.facebook.com/profile.php?id=100003043302231" target="_blank">
+                <i class="fab fa-facebook-square"></i></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/pkkpokko123/" target="_blank">
+                <i class="fab fa-instagram"></i></a>
+            </li>
+        </ul>
+
+        <div class="nav_toggle">
+            <div class="toggle">
+                <i id="toggle" class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    <header>
+        <section>
+            <div class="search__box">
+                <div class="search__title">Let me reach out to you!</div>
+                    <table>
+                        <tbody><tr>
+                            <td colspan="2" class="search__sub__title">your contact # / ID</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input id="emailFrom" class="search__input" type="text" placeholder="Type"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="search__sub__title">contact method</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <select id="subject" class="search__input">
+                                    <option>Email</option>
+                                    <option>Facebook</option>
+                                    <option>Instagram</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id="submit" class="search__button"><button onclick="emailsend()">Send</button></div>
+                </div>
+        </section>
+    </header>
+
+    <main>
+        <section>
+            <div id="map"></div>
+            <div class="sec__title">
+                I've been to...
+            </div>
+            <div class="card__box">
+                <div class="card">
+                    <div class="card__img1 card__img">
+                        <div class="card__content">U.S.A</div>
+                    </div>
+                    <div>
+                        <div class="main_pic1 main_pic"></div>
+                    </div>                    
+                </div>
+                <div class="card">
+                    <div class="card__img2 card__img">
+                        <div class="card__content">Paris</div>
+                    </div>
+                    <div>
+                        <div class="main_pic2 main_pic"></div>
+                    </div>                                
+                </div>
+                <div class="card">
+                    <div class="card__img3 card__img">
+                        <div class="card__content">Switzerland</div>
+                    </div>
+                    <div>
+                        <div class="main_pic3 main_pic"></div>
+                    </div>                                
+                </div>
+                <div class="card">                                        
+                    <div class="card__img4 card__img">
+                        <div class="card__content">Vietnam</div>
+                    </div>
+                    <div>
+                        <div class="main_pic4 main_pic"></div>
+                    </div>            
+                </div>
+            </div>
+        </section>
