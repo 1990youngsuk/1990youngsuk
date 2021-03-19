@@ -165,6 +165,8 @@ def submit(request, survey_pk, sub_pk):
     questions = survey.question_set.all()
     options = [q.option_set.all() for q in questions]
     form_kwargs = {"empty_permitted": False, "options": options}
+    print("--- THIS IS FORM_KWARGS FROM THE VIEW ---")
+    print(form_kwargs)
     AnswerFormSet = formset_factory(AnswerForm, extra=len(questions), formset=BaseAnswerFormSet)
     if request.method == "POST":
         formset = AnswerFormSet(request.POST, form_kwargs=form_kwargs)

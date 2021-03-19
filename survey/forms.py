@@ -23,14 +23,15 @@ class OptionForm(forms.ModelForm):
 
 class AnswerForm(forms.Form):
     """ I understand this as en override of the initialization method before 
-    the base method is called anew in super() """
+    the parent class is initialized anew in super() """
     # *args brukes for et ubestemt antall argumenter uten keyword
     def __init__(self, *args, **kwargs):
         for key, value in kwargs.items(): 
             print ("%s : %s" %(key, value)) 
         # options are removed from the keyword arguments
         # and returned to the options variable
-        # Thus the intention is not to delete, but to manipulate.
+        # Reason: kwargs are - objects - and must be queried to get 
+        # field information
         # The data goes from a django QuerySet to python set
         # Why? Set is an unordered list 
 
@@ -44,6 +45,7 @@ class AnswerForm(forms.Form):
         # returns class: 'set' Set is unordered? 
         for a in choices:
             print("elements in choices: ", a)
+        # Super
         super().__init__(*args, **kwargs)
         print(" Have called super !")
         if kwargs is not None:
@@ -54,6 +56,7 @@ class AnswerForm(forms.Form):
             print("kwargs is None")
         option_field = forms.ChoiceField(choices=choices, widget=forms.RadioSelect, required=True)
         self.fields["option"] = option_field
+        
 
 
 class BaseAnswerFormSet(forms.BaseFormSet):
