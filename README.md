@@ -1,4 +1,4 @@
-# Survey app
+# Survey app - A brain child of Matt Segal 
 
 A basic survey web app written in Django with no JavaScript.
 
