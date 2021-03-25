@@ -5,7 +5,7 @@
 <h1>{{ question.question_text }}</h1>
 <ul>
     {% for choice in question.choice_set.all %}
-     <li>{{ choice.choice_text }}</li>
+     <li>{{ choice.choice_text }} - {{ choice.votes }}</li>
     {% endfor%}
 </ul>
 
@@ -17,5 +17,7 @@
     {% endfor %}
     <input type="submit" value="vote">
 </form>
+
+<a href="/polls/">Back to Main Page</a>
 
 {% endblock %}
