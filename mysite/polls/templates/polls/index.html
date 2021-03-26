@@ -1,6 +1,60 @@
 {% extends "./layout.html" %}
 
-{% block body %}
+{% block carousel %}
+<!-- Carousel -->
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+      <div class="container">
+        <div class="carousel-caption text-start">
+          <h1>Example headline.</h1>
+          <p>Some representative placeholder content for the first slide of the carousel.</p>
+          <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Another example headline.</h1>
+          <p>Some representative placeholder content for the second slide of the carousel.</p>
+          <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+      <div class="container">
+        <div class="carousel-caption text-end">
+          <h1>One more for good measure.</h1>
+          <p>Some representative placeholder content for the third slide of this carousel.</p>
+          <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> <!-- Caraosel End-->
+{% endblock %}
+
+{% block main %}
 
 {% if latest_question_list %}
     <ul>
@@ -13,20 +67,51 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif%}
-
 {% endblock %}
+
+{% block headings %}
+<!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+{% endblock %}
+
 
 {% block album %}
 
 {% for question in latest_question_list %}
 <div class="col">
     <div class="card shadow-sm">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }} </a> </text></svg>
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><a href="{% url 'polls:detail' question.id %}"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{ question.question_text }} </a> </text></svg>
 
       <div class="card-body">
-        <p class="card-text">You likely made it to the website because you were searching for a random word generator which our main page tool does an excellent job of doing. As would be expected, the main tool produces more common words used on a regular basis by most people. But what if you want to find weird English words? That's exactly why we created the Random Unusual Word Generator.
-
-            If you're looking for words that are part of the English language, but you may have never heard used in conversation before, this is the online tool you've been looking for. It has hundreds of odd, unusual, weird, funny, and just plain entertaining words that you'll never likely use in a normal conversation, but are definitely fun to know. When you think, "I would like to learn a new word today" in your mind, the words in this generator are exactly the type you're thinking of. Since these words are uncommon, the definition of each word is also included in the results so you know exactly what each word means. Below you'll find a number of ways this online tool can be used.</p>
+        <p class="card-text"></p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -41,4 +126,63 @@
  
 {% endfor %}
 
+{% endblock %}
+
+{% block ads %}
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Got a talent? </h2>
+          <div><h2><span class="text-muted featurette-heading">Make more money!</span></h2></div>
+        <p class="lead">Start your service today and let's make more money ! Can you bring me a coke? How about walking a dog for me? </p>
+        <div class="lead">Oh, you just wanted to get service from us? No problem. Browse our people that suit you most</div>
+      </div>
+      <div class="col-md-5">        
+        <title>Horshoe Band</title>
+        <rect width="100%" height="100%" fill="#eee"/>
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="../static/polls/images/1505178515482.jpg" alt="Horseband Pic">        
+      
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">1 Survey = 500 won <span class="text-muted"></span></h2>
+        <div><h2><span class="text-muted featurette-heading">$ EZ MONEY $</span></h2></div>
+        <p class="lead">Would you fill out my survey? I'll pay you! It only takes about 3 mins. You know what they say; Nothing is better than free money. Try it out!</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <title>Switerland</title>
+        <rect width="100%" height="100%" fill="#eee"/>
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="../static/polls/images/20190818_060038880_iOS.jpg" alt="Horseband Pic">        
+      
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Oh yeah, it’s that easy. </h2>
+        <div><h2><span class="text-muted featurette-heading">See for yourself.</span></h2></div>
+        <p class="lead">And yes, that's it. Again, we always appreciate your thoughts toward us, simply give us your view of how we can improve our service. Let's start our journey here.</p>
+      </div>
+      <div class="col-md-5">
+        <title>Horshoe Band</title>
+        <rect width="100%" height="100%" fill="#eee"/>
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="../static/polls/images/20190816_112539000_iOS.jpg" alt="Horseband Pic">        
+      
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
 {% endblock %}

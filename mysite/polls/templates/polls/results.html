@@ -1,6 +1,6 @@
 {% extends './layout.html' %}
 
-{% block body %}
+{% block main %}
     <h1>{{ question.question_text }}</h1>
     <ul>
         {% for choice in question.choice_set.all %}
