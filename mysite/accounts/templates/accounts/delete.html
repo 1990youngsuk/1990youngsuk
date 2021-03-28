@@ -1,0 +1,22 @@
+{% extends 'layout.html '%}
+
+{% block main %}
+
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">            
+
+            <p>Are you sure you want to delete "{{item}}"?</p>
+            <p>Are you sure you want to delete "{{item}}"?</p>
+
+            <form action="{% url 'delete_order' item.id %}" method="POST">
+                {% csrf_token %}
+                <a href="{% url 'dashboard' %}" class="btn btn-warning"> Cancel </a>
+                <input class="btn btn-danger" type="submit" name="Confirm">
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

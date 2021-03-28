@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <title>Polls</title>
+    <!-- {% load static %} -->
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+    
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+    <link href="../static/polls/carousel.css" rel="stylesheet">
+    
+    <script src="../static/polls/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/polls/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+   
+  </head>
+  <body>
+
+    
+
+  {% block carousel %}
+  {% endblock %}
+
+  
+       
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-5">
+      <div class="container-fluid ">
+        <a class="navbar-brand" href="/">Youngsuk's page</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class=" navbar-nav navbar-collapse justify-content-start" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="https://www.instagram.com/pkkpokko123/">Instagram</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/profile.php?id=100003043302231">Facebook</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.youtube.com/channel/UCIlG6iYlNwNVqkgYgHdKGVw/videos" tabindex="-1" aria-disabled="true">Youtube</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/" tabindex="-1" aria-disabled="true">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/polls/" tabindex="-1" aria-disabled="true">Survey</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!--
+        <form class="d-flex justify-content-center">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        -->
+        
+        {% if request.user.is_authenticated %}
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/accounts/customer/{{user.id}}/">Hello, {{ request.user }}!</a>                                      
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>          
+        {% else %}
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'register' %}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'login' %}">Login</a>
+                </li>
+            </ul>
+        {% endif %}
+      </div>
+    </nav>
+    
+  </header>
+
+<main>
+
+
+{% block main %}  
+{% endblock %}
+  
+{% block headings %}
+{% endblock %}
+
+  
+
+    
+<!--  ALBUM   -->
+
+
+      {% block album %}
+      {% endblock %}
+
+      </div>
+    </div>
+</div>
+
+
+  {% block ads %}
+  {% endblock %}
+  
+
+<!-- FOOTER -->
+  <footer class="text-muted py-5 align-bottom">
+   
+    <hr>
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1">&copy; Youngsuk Kim</p>
+      <p class="mb-1">1990youngsuk@gmail.com</p>
+      <p class="mb-1">Instagram: pkkpokko123</p>
+      <p class="mb-1">82-10-3008-4550</p>
+      <!-- <p class="mb-0">Wanna talk to me? <a href="/">Visit the homepage</a> or let me reach out to you <a href="../getting-started/introduction/">getting started guide</a>.</p> -->
+    </div>
+  </footer>
+
+  <script src="../static/polls/bootstrap.bundle.min.js"></script>
+      
+  </body>
+</html>
