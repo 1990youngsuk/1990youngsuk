@@ -1,14 +1,39 @@
 {% extends 'layout.html' %}
 
 {% block main %}
-    <h1>{{ question.question_text }}</h1>
-    <ul>
-        {% for choice in question.choice_set.all %}
-            <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<hr>
+<hr>
+<hr>
 
-    <a href="/polls/">Back to Main Page</a>
+
+    <h1>{{ question.question_text }}</h1>
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <th scope="col">No.</th>
+                <th scope="col">Choice</th>
+                <th scope="col">Votes</th>
+            </thead>
+            <tbody>
+                {% for choice in question.choice_set.all %}
+                <tr>            
+                    <th scope="row">{{ choice.id }}</th>
+                    <td>{{ choice.choice_text }}</td>
+                    <td>{{ choice.votes }}</td>            
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+
+<div class="d-flex justify-content-center">
+    <a href="{% url 'polls:detail' question.id %}"><input type="submit" class="btn btn-outline-info" value="Vote Again?"></a>
+    <a href="/polls/"><input type="submit" class="btn btn-outline-info" value="Back to Survey Page"></a>
+</div>
+
+
+
 
 {% endblock %}

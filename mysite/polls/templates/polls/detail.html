@@ -2,12 +2,32 @@
 
 {% block main %}
 
+
+
+<hr>
+<hr>
+
 <h1>{{ question.question_text }}</h1>
-<ul>
-    {% for choice in question.choice_set.all %}
-     <li>{{ choice.choice_text }} - {{ choice.votes }}</li>
-    {% endfor%}
-</ul>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <th scope="col">#</th>
+            <th scope="col">Choice</th>
+            <th scope="col">Votes</th>
+        </thead>
+        <tbody>
+            {% for choice in question.choice_set.all %}
+            <tr>            
+                <th scope="row">{{ choice.id }}</th>
+                <td>{{ choice.choice_text }}</td>
+                <td>{{ choice.votes }}</td>            
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+</div>
+
 
 <form action="{% url 'polls:vote' question.id %}" method = "post">
     {% csrf_token %}

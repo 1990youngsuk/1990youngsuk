@@ -8,8 +8,17 @@ body {
   color: #5a5a5a;
 }
 
+
+
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
+.responsive_img{
+  max_width:100%;
+  height:auto;
+}
+
+
 
 /* Carousel base class */
 .carousel {
