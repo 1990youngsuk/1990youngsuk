@@ -8,6 +8,9 @@ from django.utils import timezone
 
 from .models import Question, Choice
 
+from accounts.decorators import unauthenticated_user, allowed_users, admin_only
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 '''
 # Generic view version (notice we are using 'class' rather than 'def')
@@ -69,16 +72,17 @@ def get_queryset(self):
 
 def index(request):
     questions = Question.objects.all()
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    
+    latest_question_list = Question.objects.order_by('-pub_date')[:9]
+
     context = {
         'questions': questions,
-        
+        # 'li': li,
         'latest_question_list': latest_question_list
     }
     return render(request, 'polls/index.html', context)
 
 
+@login_required(login_url='login')
 def survey(request):
     questions = Question.objects.all()
 
@@ -86,6 +90,7 @@ def survey(request):
     return render(request, 'polls/survey.html', context)
 
 
+@login_required(login_url='login')
 def detail(request, question_id):
     # return HttpResponse("You are looking at question %s." % question_id)
     '''  using original tech of try render and else raise 404
@@ -96,16 +101,18 @@ def detail(request, question_id):
     return render(request, 'polls/details.html', {'question': question})
     '''
     # below uses get_object_or_404 shortcut API, which return 404 if data does not exist
-    
-    question = get_object_or_404(Question, pk=question_id)    
+
+    question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/detail.html', {'question': question})
 
 
+@login_required(login_url='login')
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
 
 
+@login_required(login_url='login')
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:

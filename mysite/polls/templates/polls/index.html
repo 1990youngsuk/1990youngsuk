@@ -14,35 +14,36 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       
-      <img  style="height:512px" srcset="../static/polls/images/Pietro.jpg 1200w, ../static/polls/images/Grindelwald_resized.jpg 1600w" sizes="(max-width: 1200px) 100%, (max-width: 1600px) 100%" src="../static/polls/images/Pietro_abv_1200.jpeg" class="responsive_img" alt="Italy">
+      <img style="height:512px; text-align:center; overflow:hidden; position:relative; left: 50%; transform:translate(-50%,0); " srcset="../static/polls/images/Grindelwald_resized.jpg 1200w, ../static/polls/images/Grindelwald_resized.jpg 1600w" sizes="(max-width: 1200px) 100%, (max-width: 1600px) 100%" src="../static/polls/images/Pietro_abv_1200.jpeg"  alt="Italy">
 
       <div class="container">
         <div class="carousel-caption text-start">
-          <h1>First Slide</h1>
-          <p>Some representative placeholder content for the first slide of the carousel.</p>
+          <h1>Grindelwald, Switzerland</h1>
+          <p>Grindelwald is a village and municipality in the Interlaken-Oberhasli administrative district in the canton of Berne in Switzerland.</p>
           <p><a class="btn btn-lg btn-primary" href="{% url 'register' %}">Sign up today</a></p>
         </div>
       </div>
     </div>
     <div class="carousel-item">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-      <img  style="height:512px" srcset="../static/polls/images/Sedona_blw_1200.jpg 1200w, ../static/polls/images/Horshoe_resized.jpg 1600w" sizes="(max-width: 1200px) 100%, (max-width: 1600px) 100%" src="../static/polls/images/Sedona_abv_1200.jpeg" class="responsive_img" alt="Sedona">
-
+      
+      
+      <img  style="height:512px; text-align:center; overflow:hidden; position:relative; left: 50%; transform:translate(-50%,0);" srcset="../static/polls/images/Horshoe_resized.jpg 1200w, ../static/polls/images/Horshoe_resized.jpg 1600w" sizes="(max-width: 1200px) 100%, (max-width: 1600px) 100%" src="../static/polls/images/Horshoe_resized.jpg" alt="Sedona">
+      
       <div class="container">
         <div class="carousel-caption">
-          <h1>Another example headline.</h1>
-          <p>Some representative placeholder content for the second slide of the carousel.</p>
+          <h1>Horseshoe Bend</h1>
+          <p>Horseshoe Bend is a horseshoe-shaped incised meander of the Colorado River located near the town of Page, Arizona, United States.</p>
           <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
         </div>
       </div>
     </div>
     <div class="carousel-item">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-      <img  style="height:512px" srcset="../static/polls/images/Airplane_blw_1200.jpg 1200w, ../static/polls/images/Airplane_resized.jpg 1600w" sizes="(max-width: 1200px) 100%, (max-width: 1600px) 100%" src="../static/polls/images/Airplane_abv_1200.jpeg" class="responsive_img" alt="Airplane">
+      
+      <img  style="height:512px; text-align:center; overflow:hidden; position:relative; left: 50%; transform:translate(-50%,0);" src="../static/polls/images/Airplane_resized.jpg" alt="Airplane">
       <div class="container">
         <div class="carousel-caption text-end">
-          <h1>One more for good measure.</h1>
-          <p>Some representative placeholder content for the third slide of this carousel.</p>
+          <h1>Arizona</h1>
+          <p>Arizona, a southwestern U.S. state, is best known for the Grand Canyon, the mile-deep chasm carved by the Colorado River.</p>
           <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
         </div>
       </div>
@@ -123,14 +124,11 @@
       <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><a href="{% url 'polls:detail' question.id %}"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{ question.question_text }} </a> </text></svg>
 
       <div class="card-body">
-          <p class="card-text">{{ question.choice_set.values }}</p>
-          <p class="card-text">{{ question.choice_set.values.count }}</p>
-
-        
+          <p class="card-text">{{ question }}</p>        
         
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Vote</button>
+            <button onclick="location.href='/polls/{{ question.id }}/'"" type="button" class="btn btn-sm btn-outline-secondary">Vote</button>
             <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
           </div>
           <small class="text-muted">9 mins</small>

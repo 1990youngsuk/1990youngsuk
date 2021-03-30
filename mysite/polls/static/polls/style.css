@@ -1,4 +1,47 @@
-.responsive_img{
-    max-width:100%;
-    height: auto
+div.crop {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 450px;
+}
+
+div.crop img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+}
+
+div.crop.crop-top img {
+  margin: -10% auto 0;
+}
+div.crop-bottom img {
+  margin: 0 auto -10%;
+}
+div.crop.crop-vertically img {
+  margin: -9% auto;
+}
+div.crop.crop-right img {
+  width: 140%;
+}
+div.crop.crop-left img {
+  width: 140%;
+  margin: 0 0 0 -40%;
+}
+div.crop.crop-horizontally img {
+  width: 180%;
+  margin: 0 -20%;
+}
+div.crop.crop-square img {
+  width: 259.5%; /* calculate based on your original image... img-width*100/img-height */
+  margin: 0 0 0 -79.75%; /* the above value minus 50 */
+}
+
+@media only screen and (max-width: 599px) {
+  div.crop img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -300px;
+  }
 }
