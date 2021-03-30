@@ -68,8 +68,12 @@ def get_queryset(self):
 
 
 def index(request):
+    questions = Question.objects.all()
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    
     context = {
+        'questions': questions,
+        
         'latest_question_list': latest_question_list
     }
     return render(request, 'polls/index.html', context)
@@ -92,7 +96,8 @@ def detail(request, question_id):
     return render(request, 'polls/details.html', {'question': question})
     '''
     # below uses get_object_or_404 shortcut API, which return 404 if data does not exist
-    question = get_object_or_404(Question, pk=question_id)
+    
+    question = get_object_or_404(Question, pk=question_id)    
     return render(request, 'polls/detail.html', {'question': question})
 
 
