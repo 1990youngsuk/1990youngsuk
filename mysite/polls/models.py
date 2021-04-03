@@ -28,8 +28,9 @@ class Survey(models.Model):
     was_published_recently.short_description = 'Published recently?'
 '''
 
+
 class Question(models.Model):
-    #survey = models.ForeignKey(Survey, on_delete=models.CASCADE)    
+    #survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
@@ -50,7 +51,7 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.choice_text
+        return "%s: %i" % (self.choice_text, self.votes)
 
 
 '''

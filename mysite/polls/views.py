@@ -85,8 +85,13 @@ def index(request):
 @login_required(login_url='login')
 def survey(request):
     questions = Question.objects.all()
+    choices = list(Question.objects.all()[0].choice_set.all())
 
-    context = {'questions': questions}
+    class CS:
+        def results(self):
+            return list(Question.objects.all()[self].choice_set.all())
+
+    context = {'questions': questions, 'choices': choices}
     return render(request, 'polls/survey.html', context)
 
 

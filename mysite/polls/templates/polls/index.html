@@ -33,7 +33,7 @@
         <div class="carousel-caption">
           <h1>Horseshoe Bend</h1>
           <p>Horseshoe Bend is a horseshoe-shaped incised meander of the Colorado River located near the town of Page, Arizona, United States.</p>
-          <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          <p><a class="btn btn-lg btn-primary" target="blank" href="https://en.wikipedia.org/wiki/Horseshoe_Bend_(Arizona)">Learn more</a></p>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@
         <div class="carousel-caption text-end">
           <h1>Arizona</h1>
           <p>Arizona, a southwestern U.S. state, is best known for the Grand Canyon, the mile-deep chasm carved by the Colorado River.</p>
-          <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          <p><a class="btn btn-lg btn-primary" target="blank" href="https://en.wikipedia.org/wiki/Arizona">Browse gallery</a></p>
         </div>
       </div>
     </div>
@@ -124,14 +124,16 @@
       <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><a href="{% url 'polls:detail' question.id %}"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{ question.question_text }} </a> </text></svg>
 
       <div class="card-body">
-          <p class="card-text">{{ question }}</p>        
+        {% for i in question.choice_set.all %}
+          <p class="card-text">{{i}}</p>
+        {% endfor %}     
         
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button onclick="location.href='/polls/{{ question.id }}/'"" type="button" class="btn btn-sm btn-outline-secondary">Vote</button>
             <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
           </div>
-          <small class="text-muted">9 mins</small>
+          <small class="text-muted" id="date">{{question.pub_date.year}}/{{question.pub_date.month}}/{{question.pub_date.day}}</small>
         </div>
       </div>
     </div>
@@ -167,8 +169,8 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">1 Survey = 500 won <span class="text-muted"></span></h2>
-        <div><h2><span class="text-muted featurette-heading">$ EZ MONEY $</span></h2></div>
+        <h2 class="featurette-heading">Survey<span class="text-muted"></span></h2>
+        <div><h2><span class="text-muted featurette-heading">EZ</span></h2></div>
         <p class="lead">Would you fill out my survey? I'll pay you! It only takes about 3 mins. You know what they say; Nothing is better than free money. Try it out!</p>
       </div>
       <div class="col-md-5 order-md-1">
@@ -199,51 +201,17 @@
 
     <!-- /END THE FEATURETTES -->
 
-    <!-- 카카오톡
-    <a id="create-kakao-link-btn" href="javascript:;">
-      <img
-        src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
-      />
-    </a>
+    <script>
     
-    <script type="text/javascript">
-      Kakao.Link.createDefaultButton({
-        container: '#create-kakao-link-btn',
-        objectType: 'feed',
-        content: {
-          title: '딸기 치즈 케익',
-          description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-          imageUrl:
-            'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
-          },
-        },
-        social: {
-          likeCount: 286,
-          commentCount: 45,
-          sharedCount: 845,
-        },
-        buttons: [
-          {
-            title: '웹으로 보기',
-            link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-              webUrl: 'https://developers.kakao.com',
-            },
-          },
-          {
-            title: '앱으로 보기',
-            link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-              webUrl: 'https://developers.kakao.com',
-            },
-          },
-        ],
-      })
-    </script>
+    let sdt = new Date().day;
+    let edt = document.querySelector('#date').innerHTML;
 
+    let dateDiff = sdt - edt
+
+    console.log(dateDiff)
+      
+    </script>
+ 
 
 
 {% endblock %}

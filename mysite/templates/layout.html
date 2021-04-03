@@ -67,9 +67,11 @@
             <li class="nav-item">
               <a class="nav-link" href="https://www.youtube.com/channel/UCIlG6iYlNwNVqkgYgHdKGVw/videos" tabindex="-1" aria-disabled="true">Youtube</a>
             </li>
+            {% if request.user.is_staff %}
             <li class="nav-item">
-              <a class="nav-link" href="/accounts/" tabindex="-1" aria-disabled="true">Products</a>
+              <a class="nav-link" href="/accounts/" tabindex="-1" aria-disabled="true">Dashboard</a>
             </li>
+            {% endif %}
             <li class="nav-item">
               <a class="nav-link" href="/polls/" tabindex="-1" aria-disabled="true">Survey</a>
             </li>
