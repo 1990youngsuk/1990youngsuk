@@ -7,9 +7,11 @@ from .models import Order
 
 
 class OrderForm(ModelForm):
+
     class Meta:
         model = Order
-        fields = '__all__'
+        #fields = '__all__'
+        fields = ['customer', 'product', 'status', 'note']
 
 
 class CreateUserForm(UserCreationForm):

@@ -13,11 +13,8 @@
             <div class="now">
                 <form action="" method="POST">
                     {% csrf_token %}
-                    {{ formset.management_form }}
-                    {% for form in formset %}
                         {{form}}
                         <hr>
-                    {% endfor %}
                     <input type="submit" name="submit" class="btn btn-primary">
                 </form>
             </div>
