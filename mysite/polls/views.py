@@ -72,7 +72,7 @@ def get_queryset(self):
 
 def index(request):
     questions = Question.objects.all()
-    latest_question_list = Question.objects.order_by('-pub_date')[:9]
+    latest_question_list = Question.objects.order_by('-pub_date')[:3]
 
     context = {
         'questions': questions,
@@ -85,13 +85,13 @@ def index(request):
 @login_required(login_url='login')
 def survey(request):
     questions = Question.objects.all()
-    choices = list(Question.objects.all()[0].choice_set.all())
+    #choices = list(Question.objects.all()[0].choice_set.all())
 
     class CS:
         def results(self):
             return list(Question.objects.all()[self].choice_set.all())
 
-    context = {'questions': questions, 'choices': choices}
+    context = {'questions': questions}
     return render(request, 'polls/survey.html', context)
 
 
