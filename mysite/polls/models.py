@@ -5,7 +5,7 @@ from django.utils import timezone
 
 # Create your models here.
 
-'''
+
 class Survey(models.Model):
     survey_title = models.CharField(max_length=100, default="Title")
     survey_description = models.CharField(max_length=500, default="Description")
@@ -13,6 +13,7 @@ class Survey(models.Model):
     survey_created_at = models.DateTimeField(auto_now_add=True, null=True)
     survey_updated_at = models.DateTimeField(auto_now=True, null=True)
     
+
     def when_posted(self):
         now = timezone.now()
         return now
@@ -26,7 +27,7 @@ class Survey(models.Model):
     was_published_recently.admin_order_field = 'survey_created_at'
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently?'
-'''
+
 
 
 class Question(models.Model):

@@ -16,7 +16,7 @@ class Survey(models.Model):
 
 class Category(models.Model):
 	name = models.CharField(max_length=400)
-	survey = models.ForeignKey(Survey)
+	survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
 
 	def __unicode__(self):
 		return (self.name)
@@ -44,8 +44,8 @@ class Question(models.Model):
 
 	text = models.TextField()
 	required = models.BooleanField()
-	category = models.ForeignKey(Category, blank=True, null=True,) 
-	survey = models.ForeignKey(Survey)
+	category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE) 
+	survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
 	question_type = models.CharField(max_length=200, choices=QUESTION_TYPES, default=TEXT)
 	# the choices field is only used if the question type 
 	choices = models.TextField(blank=True, null=True,
@@ -76,7 +76,7 @@ class Response(models.Model):
 	# unique interview uuid
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
-	survey = models.ForeignKey(Survey)
+	survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
 	interviewer = models.CharField('Name of Interviewer', max_length=400)
 	interviewee = models.CharField('Name of Interviewee', max_length=400)
 	conditions = models.TextField('Conditions during interview', blank=True, null=True)
@@ -87,8 +87,8 @@ class Response(models.Model):
 		return ("response %s" % self.interview_uuid)
 
 class AnswerBase(models.Model):
-	question = models.ForeignKey(Question)
-	response = models.ForeignKey(Response)
+	question = models.ForeignKey(Question, on_delete=models.CASCADE)
+	response = models.ForeignKey(Response, on_delete=models.CASCADE)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 

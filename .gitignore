@@ -1,9 +1,3 @@
-media/data
-*.*~
-*.swp
-*.swo
-*.swn
+*.sqlite3
 *.pyc
-local_settings.py
-survey.db
-
+env/
